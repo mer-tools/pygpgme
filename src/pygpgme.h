@@ -23,6 +23,11 @@
 #include <Python.h>
 #include <gpgme.h>
 
+/* For python 2.3 compatibility */
+#ifndef Py_RETURN_NONE
+#define Py_RETURN_NONE return Py_INCREF(Py_None), Py_None
+#endif
+
 #define HIDDEN __attribute__((visibility("hidden")))
 
 typedef struct {
